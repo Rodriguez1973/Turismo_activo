@@ -2,7 +2,7 @@
 <html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>Formación Profesional</title>
+  <title>Elementos turísticos</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/estilos.css">
@@ -48,8 +48,17 @@
                   <label for="iNombre">Nombre</label>
                 </div>
                 <div class="col-75">
-                  <input type="text" id="cNombre" name="cNombre" placeholder="50 Caracteres de a-zAZ áéíóú"
-                    maxlength="50" style="width:380px">
+                  <input type="text" id="iNombre" name="iNombre" placeholder="50 Caracteres de a-zA-ZáéíóúüñÁÉÍÓÚÜÑ"
+                    maxlength="50" style="width:565px">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="iDireccion">Dirección</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="iDireccion" name="iDireccion" placeholder="300 Caracteres. No validado o requerido." maxlength="300"
+                    style="width:565px">
                 </div>
               </div>
               <div class="row">
@@ -57,15 +66,16 @@
                   <label for="iDescripcion">Descripción</label>
                 </div>
                 <div class="col-75">
-                  <textarea cols="75" rows="10" id="editorNotas" maxlength="2000"></textarea>
+                  <textarea cols="75" rows="10" id="iDescripcion" maxlength="2000"  placeholder="2000 Caracteres. No validado o requerido."></textarea>
                 </div>
               </div>
               <div class="row">
                 <div class="col-25">
-                  <label for="cTipo">Tipo</label>
+                  <label for="sTipo">Tipo</label>
                 </div>
                 <div class="col-75">
-                  <select id="stipo" name="sTipo">
+                  <select id="stipo" name="sTipo" placeholder="Seleccione">
+                    <option class="noSeleccionar" value="" disabled selected>Seleccionar...</option>
                     <option value="Catedral">Catedral</option>
                     <option value="Iglesia">Iglesia</option>
                     <option value="Parque natural">Parque natural</option>
@@ -81,7 +91,7 @@
                   <label for="iLatitud">Latitud</label>
                 </div>
                 <div class="col-75">
-                  <input type="text" id="iLatitud" name="iLatitud" placeholder="+/- 0-9," style="width:220px">
+                  <input type="text" id="iLatitud" name="iLatitud" placeholder="+/- 0-9, -90º&gt;=Latitud&lt;=90º" style="width:220px">
                 </div>
               </div>
               <div class="row">
@@ -89,7 +99,7 @@
                   <label for="iLongitud">Longitud</label>
                 </div>
                 <div class="col-75">
-                  <input type="text" id="iLongitud" name="iLongitud" placeholder="+/- 0-9," style="width:220px">
+                  <input type="text" id="iLongitud" name="iLongitud" placeholder="+/- 0-9, -180º&gt;=Longitud&lt;=180" style="width:220px">
                 </div>
               </div>
               <div class="row">

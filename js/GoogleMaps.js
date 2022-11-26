@@ -1,6 +1,7 @@
 let mapa //Referencia del mapa.
 let latitud=41.670141205551865 //Latitud de inicio de centrado del mapa.
 let longitud=-3.689933230224045//Longitud de inicio del centro del mapa.
+let coordenadasValidas = true //Flag para controlar si las coordenadas son válidas con el fin de poner el marcador en el mapa.
 let marcadores = new Array()
 
 //--------------------------------------------------------------------------------------------------
@@ -23,21 +24,6 @@ function mostrarMapa() {
     origin: new google.maps.Point(0, 0), //Origen imgen.
     anchor: new google.maps.Point(25, 50), //Punto de anclaje
   }
-
-  //Si las coordenadas son válidas muestra el marcador.
-  if(coordenadasValidas){
-  //------------------------------------------------------------------------------------------------
-  //Establece el marcador en el mapa.
-  let marker = new google.maps.Marker({
-    //Posiciona el marcador en la latitud y longitud deseada.
-    position: new google.maps.LatLng(latitud, longitud),
-    icon: icono,
-    map: mapa,
-    nombre: 'Localizador',
-  })
-  //Se añade el marcador para proceder a su borrado.
-  marcadores.push(marker);
-}
 
   //------------------------------------------------------------------------------------------------
   //Añade escuchador del evento click sobre el mapa
