@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Formación Profesional</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/estilos.css">
+  <!--Editor html para el textarea -->
+  <script src="http://js.nicedit.com/nicEdit-latest.js" defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeNRBEIWYeWRRvY8On_9pkSD1_J_zLykQ&libraries=geometry"
+    defer></script>
+  <script src="./js/BasesDatos.js" defer></script>
+  <script src="./js/GoogleMaps.js" defer></script>
+  <script src="./js/Index.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <header class="cabecera">
+      <img id="imagenTitulo" title="Turismo activo" src="images/Turismo_activo.png" alt="Turismo activo.png">
+      <h1 id="titulo">Elementos turísticos</h1>
+    </header>
+
+    <nav id="menu">
+      <div>
+        <ul>
+          <li id="grabar">
+            <button id="bGrabar">Grabar datos</button>
+          </li>
+          <li id="pdf">
+            <button id="bPdf">Crear PDF</button>
+          </li>
+          <li id="editor">
+            <button id="bEditor">Editor On/Off </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="principal">
+      <div id="datosdelejercicio">
+        <h3>Datos elemento interés turístico</h3>
+        <fieldset>
+          <div class="container">
+            <form action="/action_page.php" id="form">
+              <div class="row">
+                <div class="col-25">
+                  <label for="iNombre">Nombre</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="cNombre" name="cNombre" placeholder="50 Caracteres de a-zAZ áéíóú"
+                    maxlength="50" style="width:380px">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="iDescripcion">Descripción</label>
+                </div>
+                <div class="col-75">
+                  <textarea cols="75" rows="10" id="editorNotas" maxlength="2000"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="cTipo">Tipo</label>
+                </div>
+                <div class="col-75">
+                  <select id="stipo" name="sTipo">
+                    <option value="Catedral">Catedral</option>
+                    <option value="Iglesia">Iglesia</option>
+                    <option value="Parque natural">Parque natural</option>
+                    <option value="Museo">Museo</option>
+                    <option value="Exposición">Exposición</option>
+                    <option value="Ruta pintoresca">Ruta pintoresca</option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="iLatitud">Latitud</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="iLatitud" name="iLatitud" placeholder="+/- 0-9," style="width:220px">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="iLongitud">Longitud</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="iLongitud" name="iLongitud" placeholder="+/- 0-9," style="width:220px">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="iFechaConstruccion">Fecha construcción</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="iFechaConstruccion" name="iFechaConstruccion" placeholder="dd-mm-yyyy"
+                    maxlength="10" width="100px">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="iFechaRehabilitacion">Fecha rehabilitación</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="iFechaRehabilitacion" name="iFechaRehabilitacion" placeholder="dd-mm-yyyy"
+                    maxlength="10" width="100px">
+                </div>
+              </div>
+            </form>
+          </div>
+        </fieldset>
+      </div>
+
+      <div id="cajamapa">
+        <h3>Mapa</h3>
+        <div class="map_canvas" id="map_canvas">
+        </div>
+        <div id="direccionMapa"></div>
+      </div>
+    </div>
+  </main>
+  <footer class="pie">
+    Desarrollo de Aplicaciones Web(<cite>DAW</cite>) &copy; CIFP Santa Catalina
+  </footer>
+  </main>
+</body>
+
+</html>

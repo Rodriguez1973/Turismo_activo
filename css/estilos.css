@@ -1,0 +1,158 @@
+body{
+  width:100%;
+  margin:0;
+}
+
+main {
+  font: 1.2em sans-serif;
+  padding:0;
+  margin:0;
+}
+
+nav{
+  margin:0;
+  padding: 0;
+  min-width: 1150px;
+}
+
+header{
+  margin:0px;
+}
+
+#menu {
+  box-sizing: border-box;
+  margin-left:10px;
+  margin-right: 10px;
+  padding: 3px;
+  background-color: rgb(179, 225, 229);
+}
+
+#principal{
+  box-sizing: border-box;
+  margin-left:10px;
+  margin-right: 10px;
+  height:500px;
+  min-width: 1150px;
+}
+
+#imagenTitulo {
+  width: 120px;
+  margin-left: 100px;
+}
+
+.menu li {
+  display: inline-block;
+  list-style: none;
+  top: 50%;
+  font: bold 14px sans-serif;
+}
+
+#datosdelejercicio {
+  box-sizing: border-box;
+  float:left;
+  margin-right:10px;
+  height: 500px;
+  width: 70%;
+}
+
+#datosdelejercicio>h1{
+  width: 70%;
+}
+
+#cajamapa {
+  display:inline;
+  box-sizing: border-box;
+  width: 29%;
+  float:right;
+  
+}
+
+.pie {
+    position:absolute;
+    top:750px;
+    width: 100%;
+    margin-top: 100px;
+    text-align: center;
+}
+
+h3 {
+  box-sizing: border-box;
+  background: rgb(8, 45, 82);
+  color: white;
+  padding-left: 10%;
+}
+
+fieldset {
+  background-color: rgb(237, 240, 243);
+  margin:0;
+  height: 400px;
+}
+
+header {
+  position:relative;
+  align-items: center;
+  color: rgb(8, 45, 82);
+  min-width:1200px;
+}
+
+footer {
+  font-size: medium;
+  color: rgb(8, 45, 82);
+}
+
+#titulo {
+  display: inline;
+position:absolute;
+  top:-20%;
+  margin-left: 2%;
+  vertical-align: bottom;
+  font-size: 64px;
+}
+
+/* clase que se aplica al div que contiene el mapa de Google Maps*/
+#map_canvas {
+  height: 420px;
+  margin: 0px;
+  padding: 0px;
+  border:1px solid black;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+  display: inline;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  padding: 1px 10px 10px 10px;
+  font-size: 20px;
+  margin-left: 5px;
+  transition: border-bottom 80ms;
+  cursor: pointer;
+}
+
+li:hover {
+  border-bottom: 7px solid rgb(8, 45, 82);
+  padding-bottom: 3px;
+}
+
+.col-25 {
+  float: left;
+  width: 23%;
+  margin-top: 10px;
+}
+
+.col-75 {
+  float: left;
+  width: 77%;
+  margin-top: 10px;
+}
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+
