@@ -129,10 +129,9 @@ li {
   font-size: 20px;
   margin-left: 5px;
   transition: border-bottom 80ms;
-  cursor: pointer;
 }
 
-li:hover {
+li:has(>button:hover) {
   border-bottom: 7px solid rgb(8, 45, 82);
   padding-bottom: 3px;
 }
@@ -159,6 +158,6 @@ li:hover {
   color:#999;
 }
 
-.error{
-  box-shadow:2px 2px 2px 1px red;
+input:focus{
+  outline: none;
 }

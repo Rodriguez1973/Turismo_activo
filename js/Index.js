@@ -4,12 +4,13 @@ Fecha: 26/11/2022
 */
 
 let elementosTuristicos = new Array() //Crea un array para registrar los elementos turísticos.
+let editor=null //Declaración del objeto del editor de texto.
 
 //-------------------------------------------------------------------------------------------------
 //Se crean las referencias de los objetos del formulario.
-const grabar = document.getElementById('grabar')
-const pdf = document.getElementById('pdf')
-const editor = document.getElementById('editor')
+const bGrabar = document.getElementById('bGrabar')
+const bPdf = document.getElementById('bPdf')
+const bEditor = document.getElementById('bEditor')
 const iNombre = document.getElementById('iNombre')
 const iDireccion = document.getElementById('iDireccion')
 const iDescripcion = document.getElementById('iDescripcion')
@@ -21,9 +22,9 @@ const iFechaRehabilitacion = document.getElementById('iFechaRehabilitacion')
 
 //--------------------------------------------------------------------------------------------------
 //Definición de eventos de los objetos.
-grabar.addEventListener('click', grabarRegistro, false) //Evento click sobre el botón Grabar datos.
-pdf.addEventListener('click', crearPdf, false) //Evento click sobre el botón Crear PDF.
-editor.addEventListener('click', editar, false) //Evento click sobre el botón Editor On/Off.
+bGrabar.addEventListener('click', grabarRegistro, false) //Evento click sobre el botón Grabar datos.
+bPdf.addEventListener('click', crearPdf, false) //Evento click sobre el botón Crear PDF.
+bEditor.addEventListener('click', activarEditor, false) //Evento click sobre el botón Editor On/Off.
 iNombre.addEventListener('blur', validarDatos, false) //Evento blur dobre el input iNombre.
 iDireccion.addEventListener('blur', validarDatos, false) //Evento blur sobre el input iDescripcion.
 iDescripcion.addEventListener('blur', validarDatos, false) //Evento blur sobre el input iDescripcion.
@@ -124,11 +125,12 @@ function validarDatos(evt) {
     console.log('Resutado Chequeo:' + resultado)
     if (!resultado) {
       document.getElementById('iNombre').style.color = 'red'
-      document.getElementById('iNombre').class="2px red'
+      document.getElementById('iNombre').style.borderColor = 'red'
       document.getElementById('iNombre').focus()
       validado = false
     } else {
       document.getElementById('iNombre').style.color = 'black'
+      document.getElementById('iNombre').style.borderColor = 'black'
     }
   }
 
@@ -136,10 +138,12 @@ function validarDatos(evt) {
   if (evt.target.id == 'grabar') {
     if (sTipo.value === '') {
       document.getElementById('sTipo').style.color = 'red'
+      document.getElementById('sTipo').style.borderColor = 'red'
       document.getElementById('sTipo').focus()
       validado = false
     } else {
       document.getElementById('sTipo').style.color = 'black'
+      document.getElementById('sTipo').style.borderColor = 'black'
     }
   }
 
@@ -150,24 +154,28 @@ function validarDatos(evt) {
     console.log('Resultado Chequeo:' + resultado)
     if (!resultado || iLatitud.value < -90 || iLatitud.value > 90) {
       document.getElementById('iLatitud').style.color = 'red'
+      document.getElementById('iLatitud').style.borderColor = 'red'
       document.getElementById('iLatitud').focus()
       validado = false
     } else {
       document.getElementById('iLatitud').style.color = 'black'
+      document.getElementById('iLatitud').style.borderColor = 'black'
     }
   }
 
   //Valida la longitud.
-  if (evt.target.id === 'iLatitud' || evt.target.id === 'grabar') {
+  if (evt.target.id === 'iLongitud' || evt.target.id === 'grabar') {
     var patron = /^[-]?\d+[\.]?\d*$/
     var resultado = patron.test(iLongitud.value.trim())
     console.log('Resultado Chequeo:' + resultado)
     if (!resultado || iLongitud.value < -180 || iLongitud.value > 180) {
       document.getElementById('iLongitud').style.color = 'red'
+      document.getElementById('iLongitud').style.borderColor = 'red'
       document.getElementById('iLongitud').focus()
       validado = false
     } else {
       document.getElementById('iLongitud').style.color = 'black'
+      document.getElementById('iLongitud').style.borderColor = 'black'
     }
   }
 
@@ -179,13 +187,22 @@ function validarDatos(evt) {
     //Procesa fecha para comprobar que es menor o igual a la actual.
     let fechaConstruccion = iFechaConstruccion.value.replaceAll('-', '')
     fechaConstruccion =
-      fechaConstruccion.substring(4) + fechaConstruccion.substring(0, 4)
-    if (!resultado || fechaConstruccion > obtenerFechaActual()) {
+      fechaConstruccion.substring(4) +
+      fechaConstruccion.substring(2, 4) +
+      fechaConstruccion.substring(0, 2)
+    if (
+      !resultado ||
+      fechaConstruccion > obtenerFechaActual().replaceAll('-', '')
+    ) {
+      console.log(fechaConstruccion)
+      console.log(obtenerFechaActual())
       document.getElementById('iFechaConstruccion').style.color = 'red'
+      document.getElementById('iFechaConstruccion').style.borderColor = 'red'
       document.getElementById('iFechaConstruccion').focus()
       validado = false
     } else {
       document.getElementById('iFechaConstruccion').style.color = 'black'
+      document.getElementById('iFechaConstruccion').style.borderColor = 'black'
     }
   }
 
@@ -196,14 +213,22 @@ function validarDatos(evt) {
     console.log('Resultado Chequeo:' + resultado)
     //Procesa fecha para comprobar que es menor o igual a la actual.
     let fechaRehabilitacion = iFechaRehabilitacion.value.replaceAll('-', '')
-    fechaConstruccion =
-      fechaRehabilitacion.substring(4) + fechaRehabilitacion.substring(0, 4)
-    if (!resultado || fechaRehabilitacion > obtenerFechaActual()) {
+    fechaRehabilitacion =
+      fechaRehabilitacion.substring(4) +
+      fechaRehabilitacion.substring(2, 4) +
+      fechaRehabilitacion.substring(0, 2)
+    if (
+      !resultado ||
+      fechaRehabilitacion > obtenerFechaActual().replaceAll('-', '')
+    ) {
       document.getElementById('iFechaRehabilitacion').style.color = 'red'
+      document.getElementById('iFechaRehabilitacion').style.borderColor = 'red'
       document.getElementById('iFechaRehabilitacion').focus()
       validado = false
     } else {
       document.getElementById('iFechaRehabilitacion').style.color = 'black'
+      document.getElementById('iFechaRehabilitacion').style.borderColor =
+        'black'
     }
   }
   return validado
@@ -223,7 +248,11 @@ function obtenerFechaActual() {
 
 //--------------------------------------------------------------------------------------------------
 //Función que graba un registro en la base de datos.
-function grabarRegistro() {}
+function grabarRegistro(evt) {
+    if(validarDatos(evt)){
+        console.log("hola");
+    }
+}
 
 //--------------------------------------------------------------------------------------------------
 //Función que crea un PDF con los registros en la base de datos.
@@ -231,4 +260,11 @@ function crearPdf() {}
 
 //--------------------------------------------------------------------------------------------------
 //Función que abre o cierra el editor.
-function editar() {}
+function activarEditor() {
+    if (!editor) {
+        editor = new nicEditor({fullPanel: true}).panelInstance('iDescripcion');
+    } else {
+        editor.removeInstance('iDescripcion');
+        editor=null;
+    }
+}
