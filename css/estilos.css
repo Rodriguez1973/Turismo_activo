@@ -161,3 +161,7 @@ li:has(>button:hover) {
 input:focus{
   outline: none;
 }
+
+select:focus{
+  outline: none;
+}

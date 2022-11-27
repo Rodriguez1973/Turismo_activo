@@ -80,7 +80,6 @@ iFechaRehabilitacion.addEventListener(
 class elementoTuristico {
   //Constructor de objetos tipo elementoTuristico.
   constructor(
-    id,
     nombre,
     direccion,
     descripcion,
@@ -91,7 +90,6 @@ class elementoTuristico {
     fechaRehabilitacion,
   ) {
     validarDatos(
-      id,
       nombre,
       direccion,
       descripcion,
@@ -101,7 +99,6 @@ class elementoTuristico {
       fechaConstruccion,
       fechaRehabilitacion,
     )
-    this.id = id
     this.nombre = nombre
     this.direccion = direccion
     this.descripcion = descripcion
@@ -119,7 +116,7 @@ function validarDatos(evt) {
   let validado = true
   console.log(evt.target.id)
   //Valida el nombre.
-  if (evt.target.id === 'iNombre' || evt.target.id === 'grabar') {
+  if (evt.target.id === 'iNombre' || evt.target.id === 'bGrabar') {
     let patron = /(?=^.{1,50}$)[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]+/
     let resultado = patron.test(iNombre.value.trim())
     console.log('Resutado Chequeo:' + resultado)
@@ -135,7 +132,7 @@ function validarDatos(evt) {
   }
 
   //Valida el tipo.
-  if (evt.target.id == 'grabar') {
+  if (evt.target.id === 'bGrabar') {
     if (sTipo.value === '') {
       document.getElementById('sTipo').style.color = 'red'
       document.getElementById('sTipo').style.borderColor = 'red'
@@ -148,7 +145,7 @@ function validarDatos(evt) {
   }
 
   //Valida la latitud.
-  if (evt.target.id === 'iLatitud' || evt.target.id === 'grabar') {
+  if (evt.target.id === 'iLatitud' || evt.target.id === 'bGrabar') {
     var patron = /^[-]?\d+[\.]?\d*$/
     var resultado = patron.test(iLatitud.value.trim())
     console.log('Resultado Chequeo:' + resultado)
@@ -164,7 +161,7 @@ function validarDatos(evt) {
   }
 
   //Valida la longitud.
-  if (evt.target.id === 'iLongitud' || evt.target.id === 'grabar') {
+  if (evt.target.id === 'iLongitud' || evt.target.id === 'bGrabar') {
     var patron = /^[-]?\d+[\.]?\d*$/
     var resultado = patron.test(iLongitud.value.trim())
     console.log('Resultado Chequeo:' + resultado)
@@ -180,7 +177,7 @@ function validarDatos(evt) {
   }
 
   //Valida la fecha de construccion
-  if (evt.target.id === 'iFechaConstruccion' || evt.target.id === 'grabar') {
+  if (evt.target.id === 'iFechaConstruccion' || evt.target.id === 'bGrabar') {
     var patron = /^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$/
     var resultado = patron.test(iFechaConstruccion.value.trim())
     console.log('Resultado Chequeo:' + resultado)
@@ -207,7 +204,7 @@ function validarDatos(evt) {
   }
 
   //Valida la fecha de rehabilitación.
-  if (evt.target.id === 'iFechaRehabilitacion' || evt.target.id === 'grabar') {
+  if (evt.target.id === 'iFechaRehabilitacion' || evt.target.id === 'bGrabar') {
     var patron = /^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$/
     var resultado = patron.test(iFechaRehabilitacion.value.trim())
     console.log('Resultado Chequeo:' + resultado)
@@ -244,14 +241,6 @@ function obtenerFechaActual() {
   if (dia < 10) dia = '0' + dia //Agrega cero si el menor de 10
   if (mes < 10) mes = '0' + mes //Agrega cero si el menor de 10
   return ano + '-' + mes + '-' + dia
-}
-
-//--------------------------------------------------------------------------------------------------
-//Función que graba un registro en la base de datos.
-function grabarRegistro(evt) {
-    if(validarDatos(evt)){
-        console.log("hola");
-    }
 }
 
 //--------------------------------------------------------------------------------------------------
