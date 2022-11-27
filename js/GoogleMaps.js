@@ -1,6 +1,6 @@
 let mapa //Referencia del mapa.
-let latitud=41.670141205551865 //Latitud de inicio de centrado del mapa.
-let longitud=-3.689933230224045//Longitud de inicio del centro del mapa.
+let latitud = 41.670141205551865 //Latitud de inicio de centrado del mapa.
+let longitud = -3.689933230224045 //Longitud de inicio del centro del mapa.
 let coordenadasValidas = true //Flag para controlar si las coordenadas son válidas con el fin de poner el marcador en el mapa.
 let marcadores = new Array()
 
@@ -47,7 +47,6 @@ function mostrarMapa() {
     //Añade marcador al array de marcadores.
     marcadores.push(marker)
     //Lectura de la direccion.
-    //console.log(dato_latitud_longitud)
     leerDireccion(dato_latitud_longitud)
   })
 }
@@ -84,6 +83,9 @@ function mostrarDireccion(latlng, direccion) {
   iDireccion.value = direccion
   iLatitud.value = latlng.lat()
   iLongitud.value = latlng.lng()
+  //Valida el formulario.
+  let evt = new Event('validar')
+  map_canvas.dispatchEvent(evt)
 }
 
 //--------------------------------------------------------------------------------------------------

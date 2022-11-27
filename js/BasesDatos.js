@@ -106,5 +106,6 @@ function grabarRegistro(evt) {
     //alert(envio)
     //Envía la solicitud al servidor.
     ajaxrequest.send(envio)
+    alert('La solicitud ha sido enviada al servidor.')
   }
 }

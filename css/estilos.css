@@ -31,7 +31,7 @@ header {
   box-sizing: border-box;
   margin-left: 10px;
   margin-right: 10px;
-  height: 500px;
+  height: 525px;
   min-width: 1150px;
 }
 
@@ -51,7 +51,7 @@ header {
   box-sizing: border-box;
   float: left;
   margin-right: 10px;
-  height: 500px;
+  height: 525px;
   width: 70%;
 }
 
@@ -68,7 +68,7 @@ header {
 
 .pie {
   position: absolute;
-  top: 750px;
+  top: 720px;
   width: 100%;
   margin-top: 100px;
   text-align: center;
@@ -84,7 +84,7 @@ h3 {
 fieldset {
   background-color: rgb(237, 240, 243);
   margin: 0;
-  height: 400px;
+  height: 460px;
 }
 
 header {
@@ -110,7 +110,7 @@ footer {
 
 /* clase que se aplica al div que contiene el mapa de Google Maps*/
 #map_canvas {
-  height: 420px;
+  height: 480px;
   margin: 0px;
   padding: 0px;
   border: 1px solid black;
