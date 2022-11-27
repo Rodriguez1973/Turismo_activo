@@ -23,9 +23,11 @@ if ($connect->connect_errno) {
         //Consulta de inserción en la base de datos.										
 		$query = "INSERT INTO Interes_turistico(nombre,direccion,descripcion,tipo,latitud,longitud,fechaConstruccion,fechaRehabilitacion) VALUES ('$tmpArray[0]','$tmpArray[1]','$tmpArray[2]','$tmpArray[3]','$tmpArray[4]','$tmpArray[5]','$tmpArray[6]','$tmpArray[7]')";
 		
-		$resultado = mysqli_query($connect,$query);
-        echo "Resultado". $resultado."<br>";
-		echo "Registro grabado correctamente ".$query ;
+		if(mysqli_query($connect,$query)){
+        	echo "Registro grabado correctamente: ".$query ;
+		}else{
+			echo "Error al grabar el registro: ".$query ;
+		}
 		$connect->close();
 	}
 ?>
