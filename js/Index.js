@@ -297,3 +297,17 @@ function activarEditor() {
     editor = null
   }
 }
+
+//----------------------------------------------------------------------------------------------------
+//Función que límpia los campos tras la grabación.
+function limpiarCampos(){
+  iNombre.value=""
+  iDireccion.value=""
+  iDescripcion.value=""
+  sTipo.value=""
+  iLatitud.value=""
+  iLongitud.value=""
+  iFechaConstruccion.value=""
+  iFechaRehabilitacion.value=""
+  borrarMarcadores()
+}
