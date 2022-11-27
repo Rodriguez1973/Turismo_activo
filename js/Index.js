@@ -114,12 +114,10 @@ class elementoTuristico {
 //Función que evalua que lo elementos sean válidosel patrón
 function validarDatos(evt) {
   let validado = true
-  console.log(evt.target.id)
   //Valida el nombre.
   if (evt.target.id === 'iNombre' || evt.target.id === 'bGrabar') {
     let patron = /(?=^.{1,50}$)[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]+/
     let resultado = patron.test(iNombre.value.trim())
-    console.log('Resutado Chequeo:' + resultado)
     if (!resultado) {
       document.getElementById('iNombre').style.color = 'red'
       document.getElementById('iNombre').style.borderColor = 'red'
@@ -148,7 +146,6 @@ function validarDatos(evt) {
   if (evt.target.id === 'iLatitud' || evt.target.id === 'bGrabar') {
     var patron = /^[-]?\d+[\.]?\d*$/
     var resultado = patron.test(iLatitud.value.trim())
-    console.log('Resultado Chequeo:' + resultado)
     if (!resultado || iLatitud.value < -90 || iLatitud.value > 90) {
       document.getElementById('iLatitud').style.color = 'red'
       document.getElementById('iLatitud').style.borderColor = 'red'
@@ -164,7 +161,6 @@ function validarDatos(evt) {
   if (evt.target.id === 'iLongitud' || evt.target.id === 'bGrabar') {
     var patron = /^[-]?\d+[\.]?\d*$/
     var resultado = patron.test(iLongitud.value.trim())
-    console.log('Resultado Chequeo:' + resultado)
     if (!resultado || iLongitud.value < -180 || iLongitud.value > 180) {
       document.getElementById('iLongitud').style.color = 'red'
       document.getElementById('iLongitud').style.borderColor = 'red'
@@ -180,7 +176,6 @@ function validarDatos(evt) {
   if (evt.target.id === 'iFechaConstruccion' || evt.target.id === 'bGrabar') {
     var patron = /^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$/
     var resultado = patron.test(iFechaConstruccion.value.trim())
-    console.log('Resultado Chequeo:' + resultado)
     //Procesa fecha para comprobar que es menor o igual a la actual.
     let fechaConstruccion = iFechaConstruccion.value.replaceAll('-', '')
     fechaConstruccion =
@@ -191,8 +186,6 @@ function validarDatos(evt) {
       !resultado ||
       fechaConstruccion > obtenerFechaActual().replaceAll('-', '')
     ) {
-      console.log(fechaConstruccion)
-      console.log(obtenerFechaActual())
       document.getElementById('iFechaConstruccion').style.color = 'red'
       document.getElementById('iFechaConstruccion').style.borderColor = 'red'
       document.getElementById('iFechaConstruccion').focus()
@@ -207,7 +200,6 @@ function validarDatos(evt) {
   if (evt.target.id === 'iFechaRehabilitacion' || evt.target.id === 'bGrabar') {
     var patron = /^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$/
     var resultado = patron.test(iFechaRehabilitacion.value.trim())
-    console.log('Resultado Chequeo:' + resultado)
     //Procesa fecha para comprobar que es menor o igual a la actual.
     let fechaRehabilitacion = iFechaRehabilitacion.value.replaceAll('-', '')
     fechaRehabilitacion =

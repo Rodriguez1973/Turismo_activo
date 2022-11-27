@@ -7,7 +7,6 @@ Fecha: 26/11/2022
 //Función que graba un registro en la base de datos.
 function grabarRegistro(evt) {
   if (validarDatos(evt)) {
-    console.log(sTipo.value)
     //Acondicionamos la fecha para escribirla en el formato de la base de datos.
     let fechaContruccion = iFechaConstruccion.value.split('-')
     fechaContruccion =
@@ -73,8 +72,7 @@ function grabarRegistro(evt) {
       '"' +
       fechaRehabilitacion +
       '"}'
-    console.log(elementoTuristicoJSON)
-
+   
     //Proporciona una forma fácil de obtener información de una URL sin tener que recargar la página completa. XMLHttpRequest es ampliamente usado en la programación AJAX.
     //A pesar de su nombre, XMLHttpRequest puede ser usado para recibir cualquier tipo de dato, no solo XML, y admite otros formatos además de HTTP (incluyendo file y ftp).
     let ajaxrequest = new XMLHttpRequest()
@@ -94,10 +92,10 @@ function grabarRegistro(evt) {
     )
     //Cambio de estado a listo,
     ajaxrequest.onreadystatechange = function () {
-      alert(ajaxrequest.readyState + '--' + ajaxrequest.status)
+      //alert(ajaxrequest.readyState + '--' + ajaxrequest.status)
       if (ajaxrequest.readyState === 4 && ajaxrequest.status === 200) {
         let datosLeidos = ajaxrequest.responseText
-        console.log('Datos Recibidos  :' + datosLeidos)
+        //console.log('Datos Recibidos: ' + datosLeidos)
       }
     }
 
@@ -105,7 +103,7 @@ function grabarRegistro(evt) {
       'Content-type',
       'application/x-www-form-urlencoded',
     )
-    alert(envio)
+    //alert(envio)
     //Envía la solicitud al servidor.
     ajaxrequest.send(envio)
   }
