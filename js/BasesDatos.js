@@ -92,7 +92,7 @@ function grabarRegistro(evt) {
     )
     //Cambio de estado a listo,
     ajaxrequest.onreadystatechange = function () {
-      //alert(ajaxrequest.readyState + '--' + ajaxrequest.status)
+      alert(ajaxrequest.readyState + '--' + ajaxrequest.status)
       if (ajaxrequest.readyState === 4 && ajaxrequest.status === 200) {
         let datosLeidos = ajaxrequest.responseText
         //console.log('Datos Recibidos: ' + datosLeidos)
