@@ -6,14 +6,14 @@ class PDF extends FPDF
 	function Header()
 	{
 	//Logotipo
-	$this->Image("../imagenes/Turismo_activo.png", 5, 5, 50, 25, "PNG");
+	$this->Image("../imagenes/Turismo_activo.png", 5, 5, 25, 25, "PNG");
  
       	//Arial bold 24
 	    $this->SetFont('Arial', 'B', 24);
   		$this->Cell(160,10,utf8_decode(' Listado Elementos Turísticos'),2,0,'R');
 		$this->Ln();
 		$this->Cell(70);
-		$this->SetFillColor(224,224,224);
+		$this->SetFillColor(255,255,255);
 		$this->Cell(43,10,utf8_decode('¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯'),2,0,'R',True);
       	//Salto de línea
 		$this->Ln(15);
