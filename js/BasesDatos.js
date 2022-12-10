@@ -81,7 +81,7 @@ function grabarRegistro(evt) {
     //Inicializa una solicitud recién creada o reinicializa una existente.
     ajaxrequest.open(
       'POST',
-      'http://www.informaticasc.com/curso22_23/Rodriguez/Turismo_activo/php/grabarRegistro.php',
+      'https://www.informaticasc.com/curso22_23/Rodriguez/Turismo_activo/php/grabarRegistro.php',
       true,
     )
 
